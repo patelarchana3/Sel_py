@@ -1,0 +1,106 @@
+import sys # sys -system specific parameters and function
+import os
+
+# list of Operators are
+# Arithmetic operators [+,-,*,/,%,**(power)]
+# Comparision Oper [in, not in, is, is not, >,<,>=,<=, ==,!=]
+
+# Control flow : if(elif, else), for ..in and while
+
+sum1 = 1
+sum2 = 2
+number = 45
+guess = int(raw_input("Enter a number: "))
+string = raw_input("Enter a string: ")
+
+if guess==number:
+    print "equaal"
+elif guess<number:
+    print "less"
+else:
+    print "more"
+
+# We cna have else clause for While loop
+
+# for... in is used for looping which iterates over a sequence of objects
+
+for i in range(0,guess):
+    print i
+else:
+    print "Loop is over."
+
+for i in string:
+    print i
+
+#break and Continue statement : Break is used to break or come out from the loop and continue will skip the current loop and start with next iteration of loop.
+
+#function are resuable pieces of the program. statement with same functions can be put in same bloack and we can give name to this block which is called function.
+# fuction starts with def followed by funtion_name and parameters in parantheses.
+# local Variable and Global Variable
+
+# defaut argument, Keyword argument (when we have many parameters for the function and if we want to declare only some arguments for the parameter, then we will naming them which is call Keyword arguements
+# def func (a, b=10, c=4)
+# func(10, c=25)
+# func (b=1, c=20)
+#VarArgs: Sometimes we want to declare any number of parameters ie variable number of arguments, in that case we will use * VarArgs
+def sum(count,*numbers, **keywords):
+    for num in numbers:
+       count+=num
+    for key in keywords:
+        count +=keywords[key]
+    return count
+
+print sum(0,10,20,30, gum=100, fruits=10)
+
+#anonynous function because they are not declared in the same manner like function
+# without def keyword.
+#eg for this type of func is "lambda". it takes many no of arg but returns only one value
+
+sum = lambda sum1, sum2: sum1 + sum2
+print sum(10,20)
+
+#return statement is use to return from the fucntion is breaking out of funtion
+# return alone means "return none", none in python is also a special type.
+# By default when we dnt mention return statement in fucntion, it gets specified expilicity.
+
+# pass is use in a function , which indicates function with empty block os statements
+# pass does nothing but just act as placeholder.
+# We can use in situation where we have method or fuction but we dnt want to execute the commands in that methos
+def blank():
+    print "pass"
+    pass
+
+# documentation strings also known as docstrings are important features of python.
+# docstrings are imp part of python. it helps to better understand the code
+
+def doc_str():
+    ''' This is function for docstring example
+        this is no str'''
+    print "this is"
+
+doc_str()
+print doc_str().__doc__
+
+for i in sys.argv: # sys.argv variable is a list of string, which is nothing but list of command line arguments(arguments passed through command line)
+   # print i
+    pass
+
+print sys.path #sys.path provides the list of directory from where modules are imported from
+
+print dir(sys) # dir provides list of identifier of the modules specified, if nothing is mentioned then it will return fucntion,classes and variable of current module
+print dir()
+print
+#Packages are folders of modules wiht init.py which indicates python that they are special as it contains python module.
+
+#locals() and globals() return locally or globally accessed names
+print locals()
+print globals()
+
+
+
+
+
+
+
+
+
